@@ -1,0 +1,1 @@
+const movieData= require('../model/movieData')
