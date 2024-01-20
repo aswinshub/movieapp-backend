@@ -1,16 +1,19 @@
-const mangoose = require('mongoose');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+
 
 const movieSchema = new Schema({
 
-"moviename":String,
-"imgurl":String,
-"catogary":String,
-"language":String
+
+    moviename:String,
+    imgurl:String,
+    catogary:String,
+    language:String
+    
 
 
-
-})
-
-const user = mongoose.model('moviedatas',movieSchema)
-module.exports = user;
+  });
+  
+  const Movie = mongoose.model('moviedata', movieSchema);
+  module.exports = Movie;
+  

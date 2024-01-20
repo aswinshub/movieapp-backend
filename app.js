@@ -12,9 +12,13 @@ require('./config/db')
 app.use(morgan('dev'))
 
 const userRoute = require('./routes/userRoute')
-app.use('/user', userRoute)
+const movieRoute = require('./routes/movieRoute')
+app.use('/user', userRoute);
+app.use('/movie', movieRoute);
+
 
 const PORT = process.env.PORT || 4004
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`)

@@ -1,1 +1,42 @@
-const movieData= require('../model/movieData')
+const express = require("express");
+const movieData = require("../model/movieData");
+const router = express.Router();
+
+router.use(express.json());
+router.use(express.urlencoded({ extended: true }));
+
+
+
+
+
+
+
+//GET Method -----------------
+
+router.get("/", async (req, res) => {
+  try {
+    const data = await movieData.find();
+    res.status(200).send(data);
+  } catch (error) {
+    res.status(404).send("No data found");
+  }
+});
+
+// POST Method----------
+
+router.post("/add", async (req, res) => {
+    try {
+      var item = req.body;
+      const Data = new movieData(item);
+      const saveddata = await Data.save();
+      res.status(200).send("Added Successful");
+    } catch (error) {
+      console.error(error); // Log the error to the console
+      res.status(404).send(error.message || "Error occurred");
+    }
+  });
+  
+
+
+
+module.exports = router;
