@@ -16,8 +16,8 @@ const userSchema = new Schema({
             validator: function (value) {
                 // Use your desired regular expression for email validation
                 return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-            },
-            message: 'Invalid email address'
+            }, 
+           message: 'Invalid email address'
         }
     },
     

@@ -35,6 +35,32 @@ router.post("/add", async (req, res) => {
       res.status(404).send(error.message || "Error occurred");
     }
   });
+
+
+  router.put('/edit/:id',async(req,res)=>{
+    try {
+        var item=req.body;
+       const data= await movieData.findByIdAndUpdate(req.params.id,item);
+        res.status(200).send('Updated successfully');
+    } catch (error) {
+        res.status(404).send('Update not working');
+    } 
+    
+  })
+  
+  //Deleted Method-----------
+  
+  router.delete("/remove/:id",  async (req,res) => {
+   
+    try {
+      const BlogId = req.params.id;
+      const data = await movieData.findByIdAndDelete(BlogId);
+      console.log(data)
+      res.status(200).send('Deleted');
+    } catch (error) {
+      res.status(404).send("No data found");
+    }
+  });
   
 
 
