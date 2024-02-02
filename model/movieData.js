@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const movieSchema = new Schema({
 
-
+    id:Number,
     moviename:String,
     imgurl:String,
     catogary:String,
