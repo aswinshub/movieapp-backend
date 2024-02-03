@@ -65,20 +65,19 @@ router.post("/add", async (req, res) => {
 
 
   //Movie page 
-  router.get('/movie/:id', async (req, res) => {
+  router.get("/:id", async (req, res) => {
     try {
-      const { id } = req.params;
-      const movie = await movieData.findById(id);
-  
-      if (!movie) {
-        return res.status(404).json({ error: 'Movie not found' });
+      const movieId = req.params.id;
+      const data = await movieData.findOne({ _id: movieId });
+      
+      if (data) {
+        res.status(200).send(data);
+      } else {
+        res.status(404).send("Movie not found");
       }
-  
-      res.json(movie);
     } catch (error) {
-      console.error(error);
-      res.status(500).send('Internal Server Error');
-    }
+      res.status(500).send("Internal Server Error");
+    }
   });
 
 
