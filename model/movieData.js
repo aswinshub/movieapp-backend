@@ -4,11 +4,16 @@ const Schema = mongoose.Schema;
 
 const movieSchema = new Schema({
 
-    id:Number,
+   
     moviename:String,
     imgurl:String,
     catogary:String,
-    language:String
+    language:String,
+    cast:String,
+    discription:String,
+    rate:Number,
+    nooftickets:Number
+
     
 
 

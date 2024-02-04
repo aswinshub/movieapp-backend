@@ -50,7 +50,7 @@ router.post("/add", async (req, res) => {
   
   //Deleted Method-----------
   
-  router.delete("/remove/:id",  async (req,res) => {
+  router.delete("/delete/:id",  async (req,res) => {
    
     try {
       const BlogId = req.params.id;
